@@ -15,13 +15,19 @@ export const LoginForm: FunctionComponent = () => {
 
     try {
       const response = await axios.post(
-        "http://192.168.137.161:5001/authentication/login",
+        "https://122.3.104.117:5660/authentication/login",
         {
           username,
           password,
+        },
+        {
+          withCredentials: true,
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Content-Type": "application/json",
+          },
         }
       );
-
       if (response.status === 201) {
         setBearerToken(response.data.access_token);
         //router.push(`request-letters?jwt=${response.data.access_token}`);

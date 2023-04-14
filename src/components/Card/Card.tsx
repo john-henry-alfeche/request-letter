@@ -30,7 +30,7 @@ export const Card: FunctionComponent<CardProps> = ({
     const token = Cookies.get("bearerToken");
     axios
       .patch(
-        `http://192.168.137.161:5001/request-letters/${requestNumber}`,
+        `https://122.3.104.117:5660/request-letters/${requestNumber}`,
         null,
         {
           headers: {

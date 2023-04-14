@@ -11,7 +11,7 @@ export default function Index({ results }: any) {
     if (results.length < 1) {
       router.push("/");
     }
-  }, [results]);
+  }, [results, router]);
 
   return (
     <div className="flex h-screen w-screen bg-gradient-to-b from-blue-200 to-blue-300">
@@ -43,7 +43,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   try {
     const token = context.req.cookies["bearerToken"];
     const response = await axios.get(
-      "http://192.168.137.161:5001/request-letters",
+      "https://122.3.104.117:5660/request-letters",
       {
         headers: {
           Authorization: `Bearer ${token}`,
